@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ECMA-262 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)4.2 ECMA Overview接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分. ECMAScript是一种基于对象的语言并且基础类型由对象提供，一个ECMAScript程序由一些通信的对象构成。在E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMA-262">
+<meta property="og:url" content="http://yoursite.com/2017/08/21/ecma-262/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)4.2 ECMA Overview接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分. ECMAScript是一种基于对象的语言并且基础类型由对象提供，一个ECMAScript程序由一些通信的对象构成。在E">
+<meta property="og:image" content="http://yoursite.com/2017/08/21/ecma-262/prototype-relationships.jpg">
+<meta property="og:updated_time" content="2017-08-21T12:01:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMA-262">
+<meta name="twitter:description" content="ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)4.2 ECMA Overview接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分. ECMAScript是一种基于对象的语言并且基础类型由对象提供，一个ECMAScript程序由一些通信的对象构成。在E">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/21/ecma-262/prototype-relationships.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ecma-262" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/21/ecma-262/" class="article-date">
+  <time datetime="2017-08-21T08:34:50.000Z" itemprop="datePublished">2017-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ECMA-262
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ECMAScript®-2017-Language-Specification-ECMA-262-8th-edition-June-2017"><a href="#ECMAScript®-2017-Language-Specification-ECMA-262-8th-edition-June-2017" class="headerlink" title="ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)"></a>ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)</h1><h2 id="4-2-ECMA-Overview"><a href="#4-2-ECMA-Overview" class="headerlink" title="4.2 ECMA Overview"></a>4.2 ECMA Overview</h2><p>接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分.</p>
+<p>ECMAScript是一种<strong>基于对象</strong>的语言并且<em>基础类型</em>由对象提供，一个ECMAScript程序由一些通信的对象构成。在EMCAScript中一个对象由n(&gt;=0)个<em>特有属性</em>组成，而每个<em>特有属性</em>被若干<em>固定属性</em>描述如何使用-如当Writeable固定属性被设置成<strong>false</strong>，任何企图修改这个<em>特有属性</em>的值都会失败。特有属性是另外一些对象，<em>简单值</em>或<em>函数</em>的容器(引用)。一个简单值得数据类型可以是:<strong>Undefined</strong>，<strong>Boolean</strong>，<strong>Number</strong>，<strong>String</strong> 或 <strong>Symbol</strong>；一个对象的类型是<strong>Object</strong>；一个函数是一个可以被调用的对象。如果对象的特有属性是一个函数则称之为<em>方法</em>。</p>
+<p>ECMAScript定义了一系列<em>内置对象</em>以描述ECMAScript实体。这些内置对象包括 <a href="https://www.ecma-international.org/ecma-262/8.0/index.html#global-object" target="_blank" rel="external">global object</a>; 对象是这门语言运行时语义化的基础，其中包括 <strong>Object</strong>，<strong>Function</strong>，<strong>Boolean</strong>，<strong>Symbol</strong>，和各种 <strong>Error</strong> 对象；<strong>Math</strong>，<strong>Number</strong> 和 <strong>Date</strong> 用以代表和操作数字；<strong>String</strong>，<strong>RegExp</strong> 用以操作文本；<strong>Array</strong> 以有序的方式存储值，另外还有<strong>九</strong>种类型的元素是特殊类型的数组；以键的方式存储的对象是 <strong>Map</strong> 和 <strong>Set</strong>；支持结构化数据形式的对象有：<strong>JSON</strong>，<strong>ArrayBuffer</strong>，<strong>ShareArrayBuffer</strong> 和 <strong>DateView</strong>；支持抽象的对象有 <em>generate function</em> 和 <strong>Promise</strong>；具有反射功能的对象有 <strong>Proxy</strong> 和 <strong>Reflext</strong>。</p>
+<p>ECMAScript同时定义了一些<em>操作符(operators)</em>。其中包括一元操作符，multiplicative operators, additive operators, bitwise shift operators, relational operators, 等号操作符, binary bitwise operators, binary logical operators, assignment operators, and the comma operator.</p>
+<p>大型的ECMAScript程序支持使用 <em>Module</em> 分离成一系列状态机和声明。每个模块可以清晰的使用别的模块或被别的模块使用。</p>
+<p>ECMAScript的语法与Java的语法类似。ECMAScript语法是松散的为了创造出一种易用的脚本语言。例如，一个变量或一个特有属性不要描述其类型，(定义个函数也不需要在调用它之前显示声明)?.</p>
+<h3 id="4-2-1-Objects"><a href="#4-2-1-Objects" class="headerlink" title="4.2.1 Objects"></a>4.2.1 Objects</h3><p>尽管ECMAScript包括类的声明，EMCAScript不像C++，Smalltalk 或 Java那样是基于类的语言。替代的有很多方式包括命令或者构造函数实例化对象然后初始化全部或者一部分特有属性。每一个构造函数都有一个特有属性 <strong>prototype</strong> 去实现<em>基于原型</em>的继承和共享特有属性。对象通过使用<strong>new</strong>表达式调用构造函数创建；例如<strong>new Date(2009,11)</strong> 创建事件对象。直接调用构造函数而非使用<strong>new</strong>得到的结果取决于构造函数本身。例如，<strong>Date()</strong> 使用字符串代替对象作为参数。</p>
+<p>每一个被构造函数穿件出来的实例都有一个构造函数<em>prototype</em>的引用。此外，一个原型可能有它自己的原型引用，以此类推；这被称作<strong>原型链</strong>。当一个引用是一个对象的特有属性时，用属性名可以获取到在原型链中第一个含有这个名的对象。换言之，第一个对象检测是否含有这个名字的对象，如果有则命中了；如果没有这从原型链中寻找；</p>
+<p><img src="./prototype-relationships.jpg" alt="Object/Prototype Relationships"></p>
+<p>在以类为基础的面向对象语言中，实例持有状态，类持有方法，继承只是结构和行为上的。在ECMAScript中，对象持有状态和方法，同时结构，行为，状态都是继承的。</p>
+<p><a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-objects" target="_blank" rel="external">tbd</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/21/ecma-262/" data-id="cj6n1xjms0001ofg3r28i09xq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/21/VueJs-source/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          VueJs source analysis
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/21/VueJs-source/">VueJs source analysis</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/21/ecma-262/">ECMA-262</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
