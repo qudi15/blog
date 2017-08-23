@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://qudi15.github.io/blog"></form>
@@ -60,6 +60,435 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-ecma-262-6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/08/23/ecma-262-6/" class="article-date">
+  <time datetime="2017-08-23T06:46:02.000Z" itemprop="datePublished">2017-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2017/08/23/ecma-262-6/">ECMA-262 Clause 6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="6-ECMAScript-Data-Types-and-Values"><a href="#6-ECMAScript-Data-Types-and-Values" class="headerlink" title="6 ECMAScript Data Types and Values"></a>6 ECMAScript Data Types and Values</h1><p>本规范中的算法操纵每个值都具有关联类型的值。可能的值类型是本节中定义的值类型。类型进一步分类为ECMAScript语言类型和规范类型。</p>
+<p>在本说明书中，符号“Type（x）”用作“类型”的缩写，“类型”是指本条款中定义的ECMAScript语言和规范类型。当使用术语“空”就像命名一个值一样，它相当于说“没有任何类型的值”。</p>
+<h2 id="6-1-ECMAScript-Language-Types"><a href="#6-1-ECMAScript-Language-Types" class="headerlink" title="6.1 ECMAScript Language Types"></a>6.1 ECMAScript Language Types</h2><p>ECMAScript语言类型对应于使用ECMAScript语言的ECMAScript程序员直接操作的值。 ECMAScript语言类型为Undefined，Null，Boolean，String，Symbol，Number和Object。 ECMAScript语言值是以ECMAScript语言类型为特征的值。</p>
+<h3 id="6-1-1-The-Undefined-Type"><a href="#6-1-1-The-Undefined-Type" class="headerlink" title="6.1.1 The Undefined Type"></a>6.1.1 The Undefined Type</h3><p>Undefined类型只有一个值 <strong>undefined</strong>。 任何未赋值的变量的值就是 <strong>undefined</strong>。</p>
+<h3 id="6-1-2-The-Null-Type"><a href="#6-1-2-The-Null-Type" class="headerlink" title="6.1.2 The Null Type"></a>6.1.2 The Null Type</h3><p>Null类型只有一个值 <strong>null</strong>。</p>
+<h3 id="6-1-3-The-Boolean-Type"><a href="#6-1-3-The-Boolean-Type" class="headerlink" title="6.1.3 The Boolean Type"></a>6.1.3 The Boolean Type</h3><p>Boolean类型代表一个逻辑实体有两个值， <strong>true</strong> 和 <strong>false</strong>。</p>
+<h3 id="6-1-4-The-String-Type"><a href="#6-1-4-The-String-Type" class="headerlink" title="6.1.4 The String Type"></a>6.1.4 The String Type</h3><p>字符串类型是零或多于16位无符号整数值（“元素”）的所有有序序列的集合，最大长度为253-1个元素。字符串类型通常用于表示运行的ECMAScript程序中的文本数据，在这种情况下，String中的每个元素都被视为UTF-16代码单位值。每个元素被认为占据该序列内的一个位置。这些位置用非负整数索引。第一个元素（如果有）是索引0，索引1的下一个元素（如果有的话）等等。字符串的长度是其中的元素的数量（即，16位值）。空字符串的长度为零，因此不包含元素。</p>
+<p>其中ECMAScript操作解释字符串值，每个元素被解释为单个UTF-16代码单元。但是，ECMAScript对String值中的代码单元序列没有任何限制或要求，因此当解释为UTF-16代码单元序列时，它们可能不正确。不解释字符串内容的操作将它们视为未分化16位无符号整数的序列。函数String.prototype.normalize（见21.1.3.12）可用于显式地标准化一个String值。 String.prototype.localeCompare（见21.1.3.10）在内部对字符串进行规范化，但没有其他操作将其操作的字符串隐式归一化。只有明确指定为语言或区域设置敏感的操作会产生语言敏感的结果。</p>
+<p>NOTE: 这种设计背后的理由是尽可能简单，高效地执行Strings。如果ECMAScript源文本处于规范化形式C，则字符串字面值也将被归一化，只要它们不包含任何Unicode转义序列即可。</p>
+<p>一些操作将字符串内容解释为UTF-16编码的Unicode代码点。在这种情况下，解释是：</p>
+<ul>
+<li>范围为0到0xD7FF或0xE000到0xFFFF范围内的代码单元被解释为具有相同值的代码点。</li>
+<li>其中第一代码单元c1在0xD800到0xDBFF范围内的第二代码单元的序列和第二代码单元c2在0xDC00到0xDFFF的范围内，是代理对，被解释为具有值（c1 -  0xD800）×0x400 +（c2  -  0xDC00）+ 0x10000。 （见10.1.2）</li>
+<li>在0xD800到0xDFFF范围内但不是替代对的一部分的代码单元被解释为具有相同值的代码点。</li>
+</ul>
+<h3 id="6-1-5-The-Symbol-Type"><a href="#6-1-5-The-Symbol-Type" class="headerlink" title="6.1.5 The Symbol Type"></a>6.1.5 The Symbol Type</h3><p>Symbol类型定义了所有非字符串的有可能被用于作为对象的属性出现的值。<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-object-type" target="_blank" rel="external">6.1.7</a></p>
+<p>每一个Symbol值都是唯一和不可修改的</p>
+<p>每一个Symbol值都有一个不可变属性[[Description]]这个属性是<strong>undefined</strong>或者字符串。</p>
+<h4 id="6-1-5-1-Well-Known-Symbols"><a href="#6-1-5-1-Well-Known-Symbols" class="headerlink" title="6.1.5.1 Well-Known Symbols"></a>6.1.5.1 Well-Known Symbols</h4><p>众所周知的Symbol是内置符号值，由本规范的算法明确引用。它们通常用作其值用作规范算法的扩展点的属性的键。除非另有规定，众所周知的符号值由所有领域共享（8.2）。</p>
+<p>在本说明书中，通过使用 @@name 形式的符号来引用公知的符号，其中“name”是表1中列出的值之一。</p>
+<table>
+<thead>
+<tr>
+<th>Specification Name</th>
+<th>[[Description]]</th>
+<th style="text-align:center">Value and Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@@hasInstance</td>
+<td>“Symbol.hasInstance”</td>
+<td style="text-align:center">一个用于判断一个对象是否是由一个构造函数创建，调用的是 <strong>instanceof</strong>. 出现在构造函数里</td>
+</tr>
+<tr>
+<td>@@isConcatSpreadable</td>
+<td>“Symbol.isConcatSpreadable”</td>
+<td style="text-align:center">？</td>
+</tr>
+<tr>
+<td>@@iterator</td>
+<td>“Symbol.iterator”</td>
+<td style="text-align:center">用于获取默认迭代函数。在for-of中被调用。 出现在数组对象里</td>
+</tr>
+<tr>
+<td>@@match</td>
+<td>“Symbol.match”</td>
+<td style="text-align:center">与正则表达式匹配字符串的正则表达式方法。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-string.prototype.match" target="_blank" rel="external">String.prototype.match</a>方法调用.</td>
+</tr>
+<tr>
+<td>@@replace</td>
+<td>“Symbol.replace”</td>
+<td style="text-align:center">一个正则表达式方法，用于替换字符串的匹配子字符串。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-string.prototype.replace" target="_blank" rel="external">String.prototype.replace</a>方法调用。</td>
+</tr>
+<tr>
+<td>@@search</td>
+<td>“Symbol.search”</td>
+<td style="text-align:center">一个正则表达式方法，它返回与正则表达式匹配的字符串中的索引。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-string.prototype.search" target="_blank" rel="external">String.prototype.search</a>方法调用.</td>
+</tr>
+<tr>
+<td>@@species</td>
+<td>“Symbol.species”</td>
+<td style="text-align:center">一个函数值属性，它是用于创建派生对象的构造函数.</td>
+</tr>
+<tr>
+<td>@@split</td>
+<td>“Symbol.split”</td>
+<td style="text-align:center">一个正则表达式方法，它在与正则表达式匹配的索引处分割字符串。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-string.prototype.split" target="_blank" rel="external">String.prototype.split</a>方法调用.</td>
+</tr>
+<tr>
+<td>@@toPrimitive</td>
+<td>“Symbol.toPrimitive”</td>
+<td style="text-align:center">将对象转换为相应的原始值的方法。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-toprimitive" target="_blank" rel="external">ToPrimitive</a>抽象操作调用。</td>
+</tr>
+<tr>
+<td>@@toStringTag</td>
+<td>“Symbol.toStringTag”</td>
+<td style="text-align:center">用于创建对象的默认字符串描述的String值属性。由内置方法<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-object.prototype.tostring" target="_blank" rel="external">Object.prototype.toString</a>访问</td>
+</tr>
+<tr>
+<td>@@unscopables</td>
+<td>“Symbol.unscopables”</td>
+<td style="text-align:center">对象值属性，其自有和继承的属性名称是从关联对象的环境绑定中排除的属性名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-1-6-The-Number-Type"><a href="#6-1-6-The-Number-Type" class="headerlink" title="6.1.6 The Number Type"></a>6.1.6 The Number Type</h3><p>数字类型正好是18437736874454810627（即2^64-2^53 + 3）值，表示IEEE标准二进制浮点运算中规定的双精度64位格式的IEEE 754-2008值，不同之处在于9007199254740990（即2^53-2）将IEEE标准的不同“非数字”值作为单个特殊的NaN值在ECMAScript中表示。 （请注意，NaN值由程序表达式NaN生成。）在某些实现中，外部代码可能能够检测各种非数字值之间的差异，但这种行为是依赖于实现的;对于ECMAScript代码，所有NaN值彼此无法区分。</p>
+<p>NOTE: 在数值存储到其中之后，可能会在ArrayBuffer（见24.1）或SharedArrayBuffer（见24.2）中观察到的位模式不一定与ECMAScript实现使用的Number值的内部表示相同。</p>
+<p>还有另外两个特殊值，称为正无穷大和负无穷大。为简洁起见，这些值也分别用符号+∞和-∞表示。 （请注意，这两个无限数值由程序表达式+无限远（或简单的无穷大）和-Infinity产生。）</p>
+<p>另一个18437736874454810624（即2^64-2^53）的值称为有限数。其中一半是正数，一半是负数;对于每个有限的正数值，存在具有相同幅度的对应的负值。</p>
+<p>注意，存在正零和负零。为简洁起见，这些值也分别用符号+0和-0表示。 （请注意，这两个不同的零数值由程序表达式+0（或简单的0）和-0生成）</p>
+<p>18437736874454810622（即2^64-2^53-2）有限非零值有两种：</p>
+<p>18428729675200069632（即264-254）被归一化，具有形式</p>
+<p>s x m x 2e</p>
+<p>其中s是+1或-1，m是小于2^53但不小于2^52的正整数，e是从-1074到971的整数。</p>
+<p>剩下的9007199254740990（即2^53-2）的值被非规范化，具有形式</p>
+<p>s x m x 2e</p>
+<p>其中s是+1或-1，m是小于2^52的正整数，e是-1074。</p>
+<p>注意，其数量不大于2^53的所有正和负整数可以在Number类型中表示（实际上，整数0具有两个表示，+0和-0）。</p>
+<p>如果非零是有限数，则有奇数有效数，而用于表示它的整数m（上述两种形式之一）是奇数。否则，它是有意义的。</p>
+<p>在本说明书中，短语“x的数值”，其中x表示精确的非零真实数学量（甚至可能是非理性数字，如π）表示以下列方式选择的数值。考虑Number类型的所有有限值的集合，其中-0被移除，并且添加了两个在Number类型中不能表示的附加值，即2^1024（即+1×2^53×2971）和-2^1024（其中为-1×253×2971）。选择最接近x的这个集合的成员。如果集合的两个值相等，则选择具有均匀有效位数的值;为此，两个额外值2^1024和-2^1024被认为具有甚至有意义。最后，如果选择2^1024，将其替换为+∞;如果选择-2^1024，将其替换为-∞;如果选择+0，则当且仅当x小于零时将其替换为-0;任何其他选定的值不变地使用。结果是x的Number值。 （此过程完全符合IEEE 754-2008“从最接近，连接到偶数”模式的行为。）</p>
+<p>一些ECMAScript运算符仅处理特定范围内的整数，例如-2^31到2^31-1（包括0或216-1），或0到216-1之间的整数。这些运算符接受Number类型的任何值，但是首先将每个这样的值转换为预期范围内的整数值。请参阅7.1中数字转换操作的说明。</p>
+<h3 id="6-1-7-The-Object-Type"><a href="#6-1-7-The-Object-Type" class="headerlink" title="6.1.7 The Object Type"></a>6.1.7 The Object Type</h3><p>一个对象逻辑上是一组属性的集合。每个属性是数据属性或引用属性的一种：</p>
+<ul>
+<li>数据属性将键值与<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-language-types" target="_blank" rel="external">ECMAScript语言值</a>和一组布尔属性相关联.</li>
+<li>访问器属性将键值与一个或两个访问器函数以及一组布尔属性相关联。访问器函数用于存储或检索与属性相关联的<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-language-types" target="_blank" rel="external">ECMAScript语言值</a>。</li>
+</ul>
+<p>使用键值识别属性。属性键值是ECMAScript String值或Symbol值。所有字符串和符号值（包括空字符串）都作为属性键有效。属性名称是一个String值的属性键。</p>
+<p>整数索引是一个String值属性键，它是一个规范数字String（见7.1.16），其数值为+0或正整数≤2^53-1。数组索引是整数索引，其数值i在+0≤i&lt;2^32-1范围内。</p>
+<p>属性键用于访问属性及其值。属性有两种访问：get和set，分别对应于值检索和赋值。通过get和set访问可访问的属性包括两个属性，它们是对象的直接部分，以及由另一个关联对象通过属性继承关系提供的继承属性。继承的属性可以是关联对象的自己的或继承的属性。每个对象的属性必须每个都具有与该对象的其他属性的键值不同的键值。</p>
+<p>所有对象都是逻辑上的属性集合，但是有多种形式的对象在其用于访问和操作其属性的语义上有所区别。普通对象是对象的最常见形式，并具有默认对象语义。异乎寻常的对象是任何形式的对象，其属性语义与默认语义不同。</p>
+<h4 id="6-1-7-1-Property-Attributes"><a href="#6-1-7-1-Property-Attributes" class="headerlink" title="6.1.7.1 Property Attributes"></a>6.1.7.1 Property Attributes</h4><p>在本规范中使用属性来定义和解释Object属性的状态。数据属性将键值与表2中列出的属性相关联。</p>
+<center>Table 2: Attributes of a Data Property</center>
+
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Value Domain</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[[Value]]</td>
+<td>Any<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-language-types" target="_blank" rel="external">ECMAScript语言值</a></td>
+<td style="text-align:center">通过获取访问属性检索的值。</td>
+</tr>
+<tr>
+<td>[[Writable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果为false，ECMAScript代码尝试使用[[Set]]更改属性的[[Value]]属性将不会成功。</td>
+</tr>
+<tr>
+<td>[[Enumerable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果为true，该属性将通过for-in枚举枚举（见13.7.5）。否则，该属性是不可列举的。</td>
+</tr>
+<tr>
+<td>[[Configurable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果为false，则尝试删除属性，将属性更改为访问器属性，或更改其属性（[[Value]]除外）或将[[Writable]]更改为false）将失败。</td>
+</tr>
+</tbody>
+</table>
+<center>Table 3: Attributes of an Accessor Property</center>
+
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Value Domain</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[[Get]]</td>
+<td>Object or Undefined</td>
+<td style="text-align:center">如果该值是一个Object，它必须是一个函数对象。函数的[[Call]]内部方法（表6）使用空参数列表调用，以便在每次执行属性的访问时检索属性值。</td>
+</tr>
+<tr>
+<td>[[Set]]</td>
+<td>Object or Undefined</td>
+<td style="text-align:center">如果该值是一个Object，它必须是一个函数对象。函数的[[Call]]内部方法（表6）在每次执行该属性的设置访问时，使用包含分配值作为唯一参数的参数列表进行调用。属性的[[Set]]内部方法的效果可能但不是要求对对属性的[[Get]]内部方法的后续调用返回的值有影响。</td>
+</tr>
+<tr>
+<td>[[Enumerable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果是，该属性将通过一个for-in枚举进行枚举（见13.7.5）。否则，该属性据称是不可列举的。</td>
+</tr>
+<tr>
+<td>[[Configurable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果为false，尝试删除属性，将属性更改为数据属性或更改其属性将失败。</td>
+</tr>
+</tbody>
+</table>
+<p>如果属性属性的初始值未由本规范明确指定，则使用表4中定义的默认值。</p>
+<center>Table 4: Default Attribute Values</center>
+
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[[Value]]</td>
+<td><strong>undefined</strong></td>
+</tr>
+<tr>
+<td>[[Get]]</td>
+<td><strong>undefined</strong></td>
+</tr>
+<tr>
+<td>[[Set]]</td>
+<td><strong>undefined</strong></td>
+</tr>
+<tr>
+<td>[[Set]]</td>
+<td><strong>undefined</strong></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-data-types-and-values" target="_blank" rel="external">tbd</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://qudi15.github.io/blog/2017/08/23/ecma-262-6/" data-id="cj6ox2wrv0001f3g3mh1t7ysi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ecma-262-5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/08/23/ecma-262-5/" class="article-date">
+  <time datetime="2017-08-23T04:29:55.000Z" itemprop="datePublished">2017-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2017/08/23/ecma-262-5/">ECMA-262 Clause 5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="5-Notational-Conventions"><a href="#5-Notational-Conventions" class="headerlink" title="5 Notational Conventions"></a>5 Notational Conventions</h1><h2 id="5-1-Syntactic-and-Lexical-Grammars"><a href="#5-1-Syntactic-and-Lexical-Grammars" class="headerlink" title="5.1 Syntactic and Lexical Grammars"></a>5.1 Syntactic and Lexical Grammars</h2><h3 id="5-1-1-Context-Free-Grammars"><a href="#5-1-1-Context-Free-Grammars" class="headerlink" title="5.1.1 Context-Free Grammars"></a>5.1.1 Context-Free Grammars</h3><p>一种与上下文无关的语法由多种成果组成。每一种成果含有左侧存在一个非终止的抽象符号和右侧的一系列大于等于0的非终止和终止符。每个语法中,终止符从一个特殊的字符表中提取。</p>
+<p>连锁生产是在其右侧具有正好一个非终结符号的产品以及零个或多个终端符号。</p>
+<p>从一个由一个独特的非终端组成的句子（称为目标符号）开始，给定的无上下文语法指定了一种语言，即（可能是无限的）可能的终端符号序列集合，其可能是由于重复地替换序列与生产的右侧是非终端是左侧。</p>
+<h3 id="5-1-2-The-Lexical-and-RegExp-Grammars"><a href="#5-1-2-The-Lexical-and-RegExp-Grammars" class="headerlink" title="5.1.2 The Lexical and RegExp Grammars"></a>5.1.2 The Lexical and RegExp Grammars</h3><p>ECMAScript的词法语法在第11节中给出。该语法具有符合10.1中定义的SourceCharacter规则的Unicode码点的终端符号。它定义了一组生成，从目标符号InputElementDiv，InputElementTemplateTail或InputElementRegExp或InputElementRegExpOrTemplateTail开始，它们描述了这些代码点的序列如何转换为一系列输入元素。</p>
+<p>除空白和注释之外的输入元素构成ECMAScript语法语法的终端符号，称为ECMAScript令牌。这些令牌是ECMAScript语言的保留字，标识符，文字和标点符号。此外，线路终端器虽然不被认为是令牌，但也成为输入元件流的一部分，并指导了自动分号插入的过程（11.9）。简单的空白和单行注释被丢弃，不会出现在句法语法的输入元素流中。 MultiLineComment（也就是表示/ <em> … </em> /的注释，不管跨越多行）同样简单地丢弃，如果它不包含行终止符;但是如果MultiLineComment包含一个或多个行终止符，那么它将被单行终止符替代，该行终止符成为语法语法的输入元素流的一部分。</p>
+<p>ECMAScript的RegExp语法在21.2.1中给出。该语法也具有由SourceCharacter定义的代码点作为其终端符号。它定义了一组生成，从目标符号模式开始，描述代码点的序列如何转换为正则表达式模式。</p>
+<p>词法和RegExp语法的生成通过将两个冒号“::”作为分隔标点来区分。词汇和RegExp语法分享一些作品。</p>
+<h3 id="5-1-3-The-Numeric-String-Grammar"><a href="#5-1-3-The-Numeric-String-Grammar" class="headerlink" title="5.1.3 The Numeric String Grammar"></a>5.1.3 The Numeric String Grammar</h3><p>另一种语法用于将字符串转换为数值。这个语法类似于词法语法与数字文字有关的部分，并具有其终端符号SourceCharacter。该语法出现在7.1.3.1中。</p>
+<p>通过将三个冒号“:::”作为标点符号来区分数字字符串语法的生成。</p>
+<h3 id="5-1-4-The-Syntactic-Grammar"><a href="#5-1-4-The-Syntactic-Grammar" class="headerlink" title="5.1.4 The Syntactic Grammar"></a>5.1.4 The Syntactic Grammar</h3><p>ECMAScript的语法语法在第11,12,13,14和15章中给出。该语法具有由词法语法定义的ECMAScript令牌作为其终端符号（5.1.2）。它定义了一组生产，从两个替代目标符号脚本和模块开始，描述了令牌序列如何构成ECMAScript程序的语法正确的独立组件。</p>
+<p>当代码点流被解析为ECMAScript脚本或模块时，首先通过重复应用词汇语法将其转换为输入元素流;然后，这个输入元素流由语法语法的单个应用解析。如果输入元素流中的令牌不能被解析为目标非终结符（脚本或模块）的单个实例，则没有令牌遗漏，则输入流在语法上是错误的。</p>
+<p>当分析成功时，它构建一个解析树，一个根树结构，其中每个节点都是一个分析节点。每个分析节点是语法中的符号的实例;它表示可以从该符号导出的源文本的跨度。解析树的根节点，代表整个源文本，是解析目标符号的一个实例。当一个分析节点是一个非终端的实例时，它也是一些生产的一个实例，它具有非终端的左侧。此外，它有零个或多个孩子，一个用于生产右侧的每个符号：每个孩子是一个分析节点，它是相应符号的一个实例。</p>
+<p>句法语法的制作通过仅使用一个冒号“：”作为标点符号来区分。</p>
+<p>第12,13,14和15条中提出的句法语法不是完整的记录哪个令牌序列被接受为正确的ECMAScript脚本或模块。还接受某些附加令牌序列，即如果在某些地方（例如在线路终端符字符之前）仅将分号添加到序列中，那么语法将被描述。此外，如果在某些“尴尬”的地方出现行终止符，则语法所描述的某些令牌序列不被认为是可接受的。</p>
+<p>在某些情况下，为了避免歧义，句法语法使用广泛的制作，允许不形成有效的ECMAScript脚本或模块的令牌序列。例如，该技术用于对象文字和对象解构模式。在这种情况下，提供了更加限制性的补充语法，其进一步限制可接受的令牌序列。在某些上下文中，当明确指定时，使用补充语法的目标符号再次分析与这样的生产相对应的输入元素。如果覆盖语法解析的输入元素流中的令牌不能被解析为相应的补充目标符号的单个实例，而没有令牌被遗忘，则输入流在语法上是错误的。</p>
+<h3 id="5-1-5-Grammar-Notation"><a href="#5-1-5-Grammar-Notation" class="headerlink" title="5.1.5 Grammar Notation"></a>5.1.5 Grammar Notation</h3><p>词法，RegExp和数字字符串语法的终端符号以固定宽度的字体显示，无论是语法的生成还是整个本规范中，只要文本直接引用这样的终端符号。这些将以完全写成的脚本出现。以这种方式指定的所有终端符号代码点应被理解为来自基本拉丁语范围的适当的Unicode代码点，而不是来自其他Unicode范围的任何类似代码点。</p>
+<p>非终端符号以斜体显示。非终止（也称为“生产”）的定义由定义的非终结符的名称引入，后跟一个或多个冒号。 （冒号数表示生产所属的语法）。非终结式的一个或多个替代右手边随后跟随。例如，句法定义：</p>
+<pre><code>WhileStatement:
+  while ( Expression ) Statement
+</code></pre><p>表示非终结的WhileStatement表示令牌，之后是左括号令牌，后跟一个表达式，后跟右括号令牌，后跟一个Statement。表达和声明的出现本身就是非终结者。另一个例子，句法定义：</p>
+<pre><code>ArgumentList:
+  AssignmentExpression
+  ArgumentList, AssignmentExpression
+</code></pre><p>声明ArgumentList可以表示单个AssignmentExpression或ArgumentList，后跟逗号，后跟一个AssignmentExpression。 ArgumentList的定义是递归的，也就是说，它是根据自身的定义。结果是ArgumentList可以包含任何正数的参数，用逗号分隔，每个参数表达式是一个AssignmentExpression。非终止的这种递归定义是常见的。</p>
+<p>可能出现在终端或非终结点之后的下标后缀“opt”表示可选符号。包含可选符号的替代实际上指定了两个右侧，一个省略了可选元素，另一个包含它。这意味着：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier Initializer opt
+</code></pre><p>是一个方便的缩写：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier
+  BindingIdentifier Initializer
+</code></pre><p>另一例子：</p>
+<pre><code>IterationStatement:
+  for( LexicalDeclaration Expression opt; Expressionopt) Statement
+</code></pre><p>是一个方便的缩写：</p>
+<pre><code>IterationStatement:
+  for( LexicalDeclaration; Expressionopt ) Statement
+  for( LexicalDeclaration Expression; Expressionopt ) Statement
+</code></pre><p>缩写为：</p>
+<pre><code>IterationStatement:
+  for( LexicalDeclaration; ) Statement
+  for( LexicalDeclaration; Expression ) Statement
+  for( LexicalDeclarationExpression; ) Statement
+  for( LexicalDeclarationExpression; Expression ) Statement
+</code></pre><p>所以，在此例中，非终止符IterationStatement实际上有四种可选的右侧语法。</p>
+<p>生产可以通过“[parameters]”形式的下标注释进行参数化，这可以显示为生产定义的非终结符号的后缀。 “参数”可以是单个名称或逗号分隔的名称列表。参数化生产是一组定义了参数名称的所有组合的缩写，后面是一个下划线，附加到参数化的非终结符号。这意味着：</p>
+<pre><code>StatementList[Return]:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>缩写为:</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_Return:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>另一个：</p>
+<pre><code>StatementList[ Return, In ]:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>缩写为：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_Return:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_In:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_Return_In:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>多个参数产生组合数量的生成，并不是所有这些都必须以完整的语法参考。</p>
+<p>也可以对生产右侧的非终端进行参数化。例如：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement[+In]
+</code></pre><p>等同于：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement_In
+</code></pre><p>和：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement[~In]
+</code></pre><p>等同于：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>非终止引用可能同时具有参数列表和“opt”后缀。例如：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier Initializer [+In] opt
+</code></pre><p>缩写为：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier
+  BindingIdentifier Initializer_In
+</code></pre><p>在右侧的非终端引用上使用“？”来修饰参数名称，使该参数值取决于当前生产的左侧符号引用参数名称的出现。例如：</p>
+<pre><code>VariableDeclaration[In]:
+  BindingIdentifier Initializer[?In]
+</code></pre><p>缩写为：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier Initializer
+
+VariableDeclaration_In:
+  BindingIdentifier Initializer_In
+</code></pre><p>如果右侧替代方案以“[+ parameter”“为前缀，则只有在引用生产的非终结符号时使用了该命名参数，该选项才可用。如果右侧替代方案以“[〜parameter”“为前缀，则只有在引用生产的非终结符号时未使用命名参数才可用。这意味着:</p>
+<pre><code>StatementList[Return]:
+  [+Return] ReturnStatement
+  ExpressionStatement
+</code></pre><p>缩写为：</p>
+<pre><code>StatementList:
+  ExpressionStatement
+
+StatementList_Return:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>和：</p>
+<pre><code>StatementList[Return]:
+  [~Return] ReturnStatement
+  ExpressionStatement
+</code></pre><p>缩写为：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_Return:
+  ExpressionStatement
+</code></pre><p>当“一个”一词在语法定义中跟随冒号时，它们表示以下行或行上的每个终端符号是替代定义。例如，ECMAScript的词法语法包含生产：</p>
+<pre><code>NonZeroDigit :: one of
+  1 2 3 4 5 6 7 8 9
+</code></pre><p>可以缩写成：</p>
+<pre><code>NonZeroDigit ::
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+</code></pre><p>如果短语“[空]”出现在制作的右侧，则表示生产的右侧不包含终端或非终结符。</p>
+<p>如果短语“[lookahead∉set]”出现在制作的右侧，则表示如果紧随其后的输入令牌序列是给定集合的成员，则表示生产可能不被使用。该集合可以写成逗号分隔的一个或两个元素终端序列的列表，其中括号包含在大括号中。为了方便起见，该集合也可以被写为非终结符，在这种情况下，它表示非终端可以扩展的所有终端的集合。如果该组由单个终端组成，则可以使用短语“[lookahead≠terminal]”。</p>
+<p><a href="https://www.ecma-international.org/ecma-262/8.0/index.html#prod-grammar-notation-IterationStatement" target="_blank" rel="external">tbd</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://qudi15.github.io/blog/2017/08/23/ecma-262-5/" data-id="cj6ox2wrz0002f3g3z68zduni" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-VueJs-source" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -87,7 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://qudi15.github.io/blog/2017/08/21/VueJs-source/" data-id="cj6ndcs520001f6g3pvv302m5" class="article-share-link">Partager</a>
+      <a data-url="https://qudi15.github.io/blog/2017/08/21/VueJs-source/" data-id="cj6ox2wro0000f3g3wyp9c3ja" class="article-share-link">Share</a>
       
       
     </footer>
@@ -119,7 +548,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="ECMAScript®-2017-Language-Specification-ECMA-262-8th-edition-June-2017"><a href="#ECMAScript®-2017-Language-Specification-ECMA-262-8th-edition-June-2017" class="headerlink" title="ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)"></a>ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)</h1><h2 id="4-2-ECMA-Overview"><a href="#4-2-ECMA-Overview" class="headerlink" title="4.2 ECMA Overview"></a>4.2 ECMA Overview</h2><p>接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分.</p>
+        <h1 id="4-Overview"><a href="#4-Overview" class="headerlink" title="4 Overview"></a>4 Overview</h1><h2 id="4-2-ECMA-Overview"><a href="#4-2-ECMA-Overview" class="headerlink" title="4.2 ECMA Overview"></a>4.2 ECMA Overview</h2><p>接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分.</p>
 <p>ECMAScript是一种<strong>基于对象</strong>的语言并且<em>基础类型</em>由对象提供，一个ECMAScript程序由一些通信的对象构成。在EMCAScript中一个对象由n(&gt;=0)个<em>特有属性</em>组成，而每个<em>特有属性</em>被若干<em>固定属性</em>描述如何使用-如当Writeable固定属性被设置成<strong>false</strong>，任何企图修改这个<em>特有属性</em>的值都会失败。特有属性是另外一些对象，<em>简单值</em>或<em>函数</em>的容器(引用)。一个简单值得数据类型可以是:<strong>Undefined</strong>，<strong>Boolean</strong>，<strong>Number</strong>，<strong>String</strong> 或 <strong>Symbol</strong>；一个对象的类型是<strong>Object</strong>；一个函数是一个可以被调用的对象。如果对象的特有属性是一个函数则称之为<em>方法</em>。</p>
 <p>ECMAScript定义了一系列<em>内置对象</em>以描述ECMAScript实体。这些内置对象包括 <a href="https://www.ecma-international.org/ecma-262/8.0/index.html#global-object" target="_blank" rel="external">global object</a>; 对象是这门语言运行时语义化的基础，其中包括 <strong>Object</strong>，<strong>Function</strong>，<strong>Boolean</strong>，<strong>Symbol</strong>，和各种 <strong>Error</strong> 对象；<strong>Math</strong>，<strong>Number</strong> 和 <strong>Date</strong> 用以代表和操作数字；<strong>String</strong>，<strong>RegExp</strong> 用以操作文本；<strong>Array</strong> 以有序的方式存储值，另外还有<strong>九</strong>种类型的元素是特殊类型的数组；以键的方式存储的对象是 <strong>Map</strong> 和 <strong>Set</strong>；支持结构化数据形式的对象有：<strong>JSON</strong>，<strong>ArrayBuffer</strong>，<strong>ShareArrayBuffer</strong> 和 <strong>DateView</strong>；支持抽象的对象有 <em>generate function</em> 和 <strong>Promise</strong>；具有反射功能的对象有 <strong>Proxy</strong> 和 <strong>Reflext</strong>。</p>
 <p>ECMAScript同时定义了一些<em>操作符(operators)</em>。其中包括一元操作符，multiplicative operators, additive operators, bitwise shift operators, relational operators, 等号操作符, binary bitwise operators, binary logical operators, assignment operators, and the comma operator.</p>
@@ -181,7 +610,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://qudi15.github.io/blog/2017/08/21/ecma-262-4/" data-id="cj6ndcs4v0000f6g3q98qfk7r" class="article-share-link">Partager</a>
+      <a data-url="https://qudi15.github.io/blog/2017/08/21/ecma-262-4/" data-id="cj6ox2ws10003f3g3f5eivk4s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -216,9 +645,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2017/08/23/ecma-262-6/">ECMA-262 Clause 6</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/23/ecma-262-5/">ECMA-262 Clause 5</a>
+          </li>
         
           <li>
             <a href="/blog/2017/08/21/VueJs-source/">VueJs source analysis</a>
@@ -241,7 +678,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 曲迪(Eddy)<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

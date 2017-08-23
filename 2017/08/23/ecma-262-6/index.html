@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ECMA-262 Clause 6 | Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="6 ECMAScript Data Types and Values本规范中的算法操纵每个值都具有关联类型的值。可能的值类型是本节中定义的值类型。类型进一步分类为ECMAScript语言类型和规范类型。 在本说明书中，符号“Type（x）”用作“类型”的缩写，“类型”是指本条款中定义的ECMAScript语言和规范类型。当使用术语“空”就像命名一个值一样，它相当于说“没有任何类型的值”。 6.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMA-262 Clause 6">
+<meta property="og:url" content="https://qudi15.github.io/blog/2017/08/23/ecma-262-6/index.html">
+<meta property="og:site_name" content="Blogs">
+<meta property="og:description" content="6 ECMAScript Data Types and Values本规范中的算法操纵每个值都具有关联类型的值。可能的值类型是本节中定义的值类型。类型进一步分类为ECMAScript语言类型和规范类型。 在本说明书中，符号“Type（x）”用作“类型”的缩写，“类型”是指本条款中定义的ECMAScript语言和规范类型。当使用术语“空”就像命名一个值一样，它相当于说“没有任何类型的值”。 6.1">
+<meta property="og:updated_time" content="2017-08-23T11:07:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMA-262 Clause 6">
+<meta name="twitter:description" content="6 ECMAScript Data Types and Values本规范中的算法操纵每个值都具有关联类型的值。可能的值类型是本节中定义的值类型。类型进一步分类为ECMAScript语言类型和规范类型。 在本说明书中，符号“Type（x）”用作“类型”的缩写，“类型”是指本条款中定义的ECMAScript语言和规范类型。当使用术语“空”就像命名一个值一样，它相当于说“没有任何类型的值”。 6.1">
+  
+    <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Blogs</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://qudi15.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ecma-262-6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/08/23/ecma-262-6/" class="article-date">
+  <time datetime="2017-08-23T06:46:02.000Z" itemprop="datePublished">2017-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ECMA-262 Clause 6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="6-ECMAScript-Data-Types-and-Values"><a href="#6-ECMAScript-Data-Types-and-Values" class="headerlink" title="6 ECMAScript Data Types and Values"></a>6 ECMAScript Data Types and Values</h1><p>本规范中的算法操纵每个值都具有关联类型的值。可能的值类型是本节中定义的值类型。类型进一步分类为ECMAScript语言类型和规范类型。</p>
+<p>在本说明书中，符号“Type（x）”用作“类型”的缩写，“类型”是指本条款中定义的ECMAScript语言和规范类型。当使用术语“空”就像命名一个值一样，它相当于说“没有任何类型的值”。</p>
+<h2 id="6-1-ECMAScript-Language-Types"><a href="#6-1-ECMAScript-Language-Types" class="headerlink" title="6.1 ECMAScript Language Types"></a>6.1 ECMAScript Language Types</h2><p>ECMAScript语言类型对应于使用ECMAScript语言的ECMAScript程序员直接操作的值。 ECMAScript语言类型为Undefined，Null，Boolean，String，Symbol，Number和Object。 ECMAScript语言值是以ECMAScript语言类型为特征的值。</p>
+<h3 id="6-1-1-The-Undefined-Type"><a href="#6-1-1-The-Undefined-Type" class="headerlink" title="6.1.1 The Undefined Type"></a>6.1.1 The Undefined Type</h3><p>Undefined类型只有一个值 <strong>undefined</strong>。 任何未赋值的变量的值就是 <strong>undefined</strong>。</p>
+<h3 id="6-1-2-The-Null-Type"><a href="#6-1-2-The-Null-Type" class="headerlink" title="6.1.2 The Null Type"></a>6.1.2 The Null Type</h3><p>Null类型只有一个值 <strong>null</strong>。</p>
+<h3 id="6-1-3-The-Boolean-Type"><a href="#6-1-3-The-Boolean-Type" class="headerlink" title="6.1.3 The Boolean Type"></a>6.1.3 The Boolean Type</h3><p>Boolean类型代表一个逻辑实体有两个值， <strong>true</strong> 和 <strong>false</strong>。</p>
+<h3 id="6-1-4-The-String-Type"><a href="#6-1-4-The-String-Type" class="headerlink" title="6.1.4 The String Type"></a>6.1.4 The String Type</h3><p>字符串类型是零或多于16位无符号整数值（“元素”）的所有有序序列的集合，最大长度为253-1个元素。字符串类型通常用于表示运行的ECMAScript程序中的文本数据，在这种情况下，String中的每个元素都被视为UTF-16代码单位值。每个元素被认为占据该序列内的一个位置。这些位置用非负整数索引。第一个元素（如果有）是索引0，索引1的下一个元素（如果有的话）等等。字符串的长度是其中的元素的数量（即，16位值）。空字符串的长度为零，因此不包含元素。</p>
+<p>其中ECMAScript操作解释字符串值，每个元素被解释为单个UTF-16代码单元。但是，ECMAScript对String值中的代码单元序列没有任何限制或要求，因此当解释为UTF-16代码单元序列时，它们可能不正确。不解释字符串内容的操作将它们视为未分化16位无符号整数的序列。函数String.prototype.normalize（见21.1.3.12）可用于显式地标准化一个String值。 String.prototype.localeCompare（见21.1.3.10）在内部对字符串进行规范化，但没有其他操作将其操作的字符串隐式归一化。只有明确指定为语言或区域设置敏感的操作会产生语言敏感的结果。</p>
+<p>NOTE: 这种设计背后的理由是尽可能简单，高效地执行Strings。如果ECMAScript源文本处于规范化形式C，则字符串字面值也将被归一化，只要它们不包含任何Unicode转义序列即可。</p>
+<p>一些操作将字符串内容解释为UTF-16编码的Unicode代码点。在这种情况下，解释是：</p>
+<ul>
+<li>范围为0到0xD7FF或0xE000到0xFFFF范围内的代码单元被解释为具有相同值的代码点。</li>
+<li>其中第一代码单元c1在0xD800到0xDBFF范围内的第二代码单元的序列和第二代码单元c2在0xDC00到0xDFFF的范围内，是代理对，被解释为具有值（c1 -  0xD800）×0x400 +（c2  -  0xDC00）+ 0x10000。 （见10.1.2）</li>
+<li>在0xD800到0xDFFF范围内但不是替代对的一部分的代码单元被解释为具有相同值的代码点。</li>
+</ul>
+<h3 id="6-1-5-The-Symbol-Type"><a href="#6-1-5-The-Symbol-Type" class="headerlink" title="6.1.5 The Symbol Type"></a>6.1.5 The Symbol Type</h3><p>Symbol类型定义了所有非字符串的有可能被用于作为对象的属性出现的值。<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-object-type" target="_blank" rel="external">6.1.7</a></p>
+<p>每一个Symbol值都是唯一和不可修改的</p>
+<p>每一个Symbol值都有一个不可变属性[[Description]]这个属性是<strong>undefined</strong>或者字符串。</p>
+<h4 id="6-1-5-1-Well-Known-Symbols"><a href="#6-1-5-1-Well-Known-Symbols" class="headerlink" title="6.1.5.1 Well-Known Symbols"></a>6.1.5.1 Well-Known Symbols</h4><p>众所周知的Symbol是内置符号值，由本规范的算法明确引用。它们通常用作其值用作规范算法的扩展点的属性的键。除非另有规定，众所周知的符号值由所有领域共享（8.2）。</p>
+<p>在本说明书中，通过使用 @@name 形式的符号来引用公知的符号，其中“name”是表1中列出的值之一。</p>
+<table>
+<thead>
+<tr>
+<th>Specification Name</th>
+<th>[[Description]]</th>
+<th style="text-align:center">Value and Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@@hasInstance</td>
+<td>“Symbol.hasInstance”</td>
+<td style="text-align:center">一个用于判断一个对象是否是由一个构造函数创建，调用的是 <strong>instanceof</strong>. 出现在构造函数里</td>
+</tr>
+<tr>
+<td>@@isConcatSpreadable</td>
+<td>“Symbol.isConcatSpreadable”</td>
+<td style="text-align:center">？</td>
+</tr>
+<tr>
+<td>@@iterator</td>
+<td>“Symbol.iterator”</td>
+<td style="text-align:center">用于获取默认迭代函数。在for-of中被调用。 出现在数组对象里</td>
+</tr>
+<tr>
+<td>@@match</td>
+<td>“Symbol.match”</td>
+<td style="text-align:center">与正则表达式匹配字符串的正则表达式方法。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-string.prototype.match" target="_blank" rel="external">String.prototype.match</a>方法调用.</td>
+</tr>
+<tr>
+<td>@@replace</td>
+<td>“Symbol.replace”</td>
+<td style="text-align:center">一个正则表达式方法，用于替换字符串的匹配子字符串。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-string.prototype.replace" target="_blank" rel="external">String.prototype.replace</a>方法调用。</td>
+</tr>
+<tr>
+<td>@@search</td>
+<td>“Symbol.search”</td>
+<td style="text-align:center">一个正则表达式方法，它返回与正则表达式匹配的字符串中的索引。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-string.prototype.search" target="_blank" rel="external">String.prototype.search</a>方法调用.</td>
+</tr>
+<tr>
+<td>@@species</td>
+<td>“Symbol.species”</td>
+<td style="text-align:center">一个函数值属性，它是用于创建派生对象的构造函数.</td>
+</tr>
+<tr>
+<td>@@split</td>
+<td>“Symbol.split”</td>
+<td style="text-align:center">一个正则表达式方法，它在与正则表达式匹配的索引处分割字符串。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-string.prototype.split" target="_blank" rel="external">String.prototype.split</a>方法调用.</td>
+</tr>
+<tr>
+<td>@@toPrimitive</td>
+<td>“Symbol.toPrimitive”</td>
+<td style="text-align:center">将对象转换为相应的原始值的方法。由<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-toprimitive" target="_blank" rel="external">ToPrimitive</a>抽象操作调用。</td>
+</tr>
+<tr>
+<td>@@toStringTag</td>
+<td>“Symbol.toStringTag”</td>
+<td style="text-align:center">用于创建对象的默认字符串描述的String值属性。由内置方法<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-object.prototype.tostring" target="_blank" rel="external">Object.prototype.toString</a>访问</td>
+</tr>
+<tr>
+<td>@@unscopables</td>
+<td>“Symbol.unscopables”</td>
+<td style="text-align:center">对象值属性，其自有和继承的属性名称是从关联对象的环境绑定中排除的属性名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-1-6-The-Number-Type"><a href="#6-1-6-The-Number-Type" class="headerlink" title="6.1.6 The Number Type"></a>6.1.6 The Number Type</h3><p>数字类型正好是18437736874454810627（即2^64-2^53 + 3）值，表示IEEE标准二进制浮点运算中规定的双精度64位格式的IEEE 754-2008值，不同之处在于9007199254740990（即2^53-2）将IEEE标准的不同“非数字”值作为单个特殊的NaN值在ECMAScript中表示。 （请注意，NaN值由程序表达式NaN生成。）在某些实现中，外部代码可能能够检测各种非数字值之间的差异，但这种行为是依赖于实现的;对于ECMAScript代码，所有NaN值彼此无法区分。</p>
+<p>NOTE: 在数值存储到其中之后，可能会在ArrayBuffer（见24.1）或SharedArrayBuffer（见24.2）中观察到的位模式不一定与ECMAScript实现使用的Number值的内部表示相同。</p>
+<p>还有另外两个特殊值，称为正无穷大和负无穷大。为简洁起见，这些值也分别用符号+∞和-∞表示。 （请注意，这两个无限数值由程序表达式+无限远（或简单的无穷大）和-Infinity产生。）</p>
+<p>另一个18437736874454810624（即2^64-2^53）的值称为有限数。其中一半是正数，一半是负数;对于每个有限的正数值，存在具有相同幅度的对应的负值。</p>
+<p>注意，存在正零和负零。为简洁起见，这些值也分别用符号+0和-0表示。 （请注意，这两个不同的零数值由程序表达式+0（或简单的0）和-0生成）</p>
+<p>18437736874454810622（即2^64-2^53-2）有限非零值有两种：</p>
+<p>18428729675200069632（即264-254）被归一化，具有形式</p>
+<p>s x m x 2e</p>
+<p>其中s是+1或-1，m是小于2^53但不小于2^52的正整数，e是从-1074到971的整数。</p>
+<p>剩下的9007199254740990（即2^53-2）的值被非规范化，具有形式</p>
+<p>s x m x 2e</p>
+<p>其中s是+1或-1，m是小于2^52的正整数，e是-1074。</p>
+<p>注意，其数量不大于2^53的所有正和负整数可以在Number类型中表示（实际上，整数0具有两个表示，+0和-0）。</p>
+<p>如果非零是有限数，则有奇数有效数，而用于表示它的整数m（上述两种形式之一）是奇数。否则，它是有意义的。</p>
+<p>在本说明书中，短语“x的数值”，其中x表示精确的非零真实数学量（甚至可能是非理性数字，如π）表示以下列方式选择的数值。考虑Number类型的所有有限值的集合，其中-0被移除，并且添加了两个在Number类型中不能表示的附加值，即2^1024（即+1×2^53×2971）和-2^1024（其中为-1×253×2971）。选择最接近x的这个集合的成员。如果集合的两个值相等，则选择具有均匀有效位数的值;为此，两个额外值2^1024和-2^1024被认为具有甚至有意义。最后，如果选择2^1024，将其替换为+∞;如果选择-2^1024，将其替换为-∞;如果选择+0，则当且仅当x小于零时将其替换为-0;任何其他选定的值不变地使用。结果是x的Number值。 （此过程完全符合IEEE 754-2008“从最接近，连接到偶数”模式的行为。）</p>
+<p>一些ECMAScript运算符仅处理特定范围内的整数，例如-2^31到2^31-1（包括0或216-1），或0到216-1之间的整数。这些运算符接受Number类型的任何值，但是首先将每个这样的值转换为预期范围内的整数值。请参阅7.1中数字转换操作的说明。</p>
+<h3 id="6-1-7-The-Object-Type"><a href="#6-1-7-The-Object-Type" class="headerlink" title="6.1.7 The Object Type"></a>6.1.7 The Object Type</h3><p>一个对象逻辑上是一组属性的集合。每个属性是数据属性或引用属性的一种：</p>
+<ul>
+<li>数据属性将键值与<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-language-types" target="_blank" rel="external">ECMAScript语言值</a>和一组布尔属性相关联.</li>
+<li>访问器属性将键值与一个或两个访问器函数以及一组布尔属性相关联。访问器函数用于存储或检索与属性相关联的<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-language-types" target="_blank" rel="external">ECMAScript语言值</a>。</li>
+</ul>
+<p>使用键值识别属性。属性键值是ECMAScript String值或Symbol值。所有字符串和符号值（包括空字符串）都作为属性键有效。属性名称是一个String值的属性键。</p>
+<p>整数索引是一个String值属性键，它是一个规范数字String（见7.1.16），其数值为+0或正整数≤2^53-1。数组索引是整数索引，其数值i在+0≤i&lt;2^32-1范围内。</p>
+<p>属性键用于访问属性及其值。属性有两种访问：get和set，分别对应于值检索和赋值。通过get和set访问可访问的属性包括两个属性，它们是对象的直接部分，以及由另一个关联对象通过属性继承关系提供的继承属性。继承的属性可以是关联对象的自己的或继承的属性。每个对象的属性必须每个都具有与该对象的其他属性的键值不同的键值。</p>
+<p>所有对象都是逻辑上的属性集合，但是有多种形式的对象在其用于访问和操作其属性的语义上有所区别。普通对象是对象的最常见形式，并具有默认对象语义。异乎寻常的对象是任何形式的对象，其属性语义与默认语义不同。</p>
+<h4 id="6-1-7-1-Property-Attributes"><a href="#6-1-7-1-Property-Attributes" class="headerlink" title="6.1.7.1 Property Attributes"></a>6.1.7.1 Property Attributes</h4><p>在本规范中使用属性来定义和解释Object属性的状态。数据属性将键值与表2中列出的属性相关联。</p>
+<center>Table 2: Attributes of a Data Property</center>
+
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Value Domain</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[[Value]]</td>
+<td>Any<a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-language-types" target="_blank" rel="external">ECMAScript语言值</a></td>
+<td style="text-align:center">通过获取访问属性检索的值。</td>
+</tr>
+<tr>
+<td>[[Writable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果为false，ECMAScript代码尝试使用[[Set]]更改属性的[[Value]]属性将不会成功。</td>
+</tr>
+<tr>
+<td>[[Enumerable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果为true，该属性将通过for-in枚举枚举（见13.7.5）。否则，该属性是不可列举的。</td>
+</tr>
+<tr>
+<td>[[Configurable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果为false，则尝试删除属性，将属性更改为访问器属性，或更改其属性（[[Value]]除外）或将[[Writable]]更改为false）将失败。</td>
+</tr>
+</tbody>
+</table>
+<center>Table 3: Attributes of an Accessor Property</center>
+
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Value Domain</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[[Get]]</td>
+<td>Object or Undefined</td>
+<td style="text-align:center">如果该值是一个Object，它必须是一个函数对象。函数的[[Call]]内部方法（表6）使用空参数列表调用，以便在每次执行属性的访问时检索属性值。</td>
+</tr>
+<tr>
+<td>[[Set]]</td>
+<td>Object or Undefined</td>
+<td style="text-align:center">如果该值是一个Object，它必须是一个函数对象。函数的[[Call]]内部方法（表6）在每次执行该属性的设置访问时，使用包含分配值作为唯一参数的参数列表进行调用。属性的[[Set]]内部方法的效果可能但不是要求对对属性的[[Get]]内部方法的后续调用返回的值有影响。</td>
+</tr>
+<tr>
+<td>[[Enumerable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果是，该属性将通过一个for-in枚举进行枚举（见13.7.5）。否则，该属性据称是不可列举的。</td>
+</tr>
+<tr>
+<td>[[Configurable]]</td>
+<td>Boolean</td>
+<td style="text-align:center">如果为false，尝试删除属性，将属性更改为数据属性或更改其属性将失败。</td>
+</tr>
+</tbody>
+</table>
+<p>如果属性属性的初始值未由本规范明确指定，则使用表4中定义的默认值。</p>
+<center>Table 4: Default Attribute Values</center>
+
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[[Value]]</td>
+<td><strong>undefined</strong></td>
+</tr>
+<tr>
+<td>[[Get]]</td>
+<td><strong>undefined</strong></td>
+</tr>
+<tr>
+<td>[[Set]]</td>
+<td><strong>undefined</strong></td>
+</tr>
+<tr>
+<td>[[Set]]</td>
+<td><strong>undefined</strong></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-data-types-and-values" target="_blank" rel="external">tbd</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://qudi15.github.io/blog/2017/08/23/ecma-262-6/" data-id="cj6ox2wrv0001f3g3mh1t7ysi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2017/08/23/ecma-262-5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ECMA-262 Clause 5</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/08/23/ecma-262-6/">ECMA-262 Clause 6</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/23/ecma-262-5/">ECMA-262 Clause 5</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/21/VueJs-source/">VueJs source analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/21/ecma-262-4/">ECMA-262 Clause 4</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 曲迪(Eddy)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -5,17 +5,17 @@
   
   <title>ECMA-262 Clause 4 | Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)4.2 ECMA Overview接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分. ECMAScript是一种基于对象的语言并且基础类型由对象提供，一个ECMAScript程序由一些通信的对象构成。在E">
+  <meta name="description" content="4 Overview4.2 ECMA Overview接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分. ECMAScript是一种基于对象的语言并且基础类型由对象提供，一个ECMAScript程序由一些通信的对象构成。在EMCAScript中一个对象由n(&amp;gt;=0)个特有属性组成，而每个特有属性被若干固定属性描述如何使用-如当Writeable">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ECMA-262 Clause 4">
 <meta property="og:url" content="https://qudi15.github.io/blog/2017/08/21/ecma-262-4/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)4.2 ECMA Overview接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分. ECMAScript是一种基于对象的语言并且基础类型由对象提供，一个ECMAScript程序由一些通信的对象构成。在E">
+<meta property="og:description" content="4 Overview4.2 ECMA Overview接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分. ECMAScript是一种基于对象的语言并且基础类型由对象提供，一个ECMAScript程序由一些通信的对象构成。在EMCAScript中一个对象由n(&amp;gt;=0)个特有属性组成，而每个特有属性被若干固定属性描述如何使用-如当Writeable">
 <meta property="og:image" content="https://qudi15.github.io/images/ecma/prototype-relationships.jpg">
-<meta property="og:updated_time" content="2017-08-22T08:55:08.000Z">
+<meta property="og:updated_time" content="2017-08-23T05:08:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMA-262 Clause 4">
-<meta name="twitter:description" content="ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)4.2 ECMA Overview接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分. ECMAScript是一种基于对象的语言并且基础类型由对象提供，一个ECMAScript程序由一些通信的对象构成。在E">
+<meta name="twitter:description" content="4 Overview4.2 ECMA Overview接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分. ECMAScript是一种基于对象的语言并且基础类型由对象提供，一个ECMAScript程序由一些通信的对象构成。在EMCAScript中一个对象由n(&amp;gt;=0)个特有属性组成，而每个特有属性被若干固定属性描述如何使用-如当Writeable">
 <meta name="twitter:image" content="https://qudi15.github.io/images/ecma/prototype-relationships.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml">
@@ -54,9 +54,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://qudi15.github.io/blog"></form>
@@ -87,7 +87,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="ECMAScript®-2017-Language-Specification-ECMA-262-8th-edition-June-2017"><a href="#ECMAScript®-2017-Language-Specification-ECMA-262-8th-edition-June-2017" class="headerlink" title="ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)"></a>ECMAScript® 2017 Language Specification (ECMA-262, 8th edition, June 2017)</h1><h2 id="4-2-ECMA-Overview"><a href="#4-2-ECMA-Overview" class="headerlink" title="4.2 ECMA Overview"></a>4.2 ECMA Overview</h2><p>接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分.</p>
+        <h1 id="4-Overview"><a href="#4-Overview" class="headerlink" title="4 Overview"></a>4 Overview</h1><h2 id="4-2-ECMA-Overview"><a href="#4-2-ECMA-Overview" class="headerlink" title="4.2 ECMA Overview"></a>4.2 ECMA Overview</h2><p>接下来是非正式的ECMAScript的概述-并非所有的语言的部分被描述.这个概述不是标准的一部分.</p>
 <p>ECMAScript是一种<strong>基于对象</strong>的语言并且<em>基础类型</em>由对象提供，一个ECMAScript程序由一些通信的对象构成。在EMCAScript中一个对象由n(&gt;=0)个<em>特有属性</em>组成，而每个<em>特有属性</em>被若干<em>固定属性</em>描述如何使用-如当Writeable固定属性被设置成<strong>false</strong>，任何企图修改这个<em>特有属性</em>的值都会失败。特有属性是另外一些对象，<em>简单值</em>或<em>函数</em>的容器(引用)。一个简单值得数据类型可以是:<strong>Undefined</strong>，<strong>Boolean</strong>，<strong>Number</strong>，<strong>String</strong> 或 <strong>Symbol</strong>；一个对象的类型是<strong>Object</strong>；一个函数是一个可以被调用的对象。如果对象的特有属性是一个函数则称之为<em>方法</em>。</p>
 <p>ECMAScript定义了一系列<em>内置对象</em>以描述ECMAScript实体。这些内置对象包括 <a href="https://www.ecma-international.org/ecma-262/8.0/index.html#global-object" target="_blank" rel="external">global object</a>; 对象是这门语言运行时语义化的基础，其中包括 <strong>Object</strong>，<strong>Function</strong>，<strong>Boolean</strong>，<strong>Symbol</strong>，和各种 <strong>Error</strong> 对象；<strong>Math</strong>，<strong>Number</strong> 和 <strong>Date</strong> 用以代表和操作数字；<strong>String</strong>，<strong>RegExp</strong> 用以操作文本；<strong>Array</strong> 以有序的方式存储值，另外还有<strong>九</strong>种类型的元素是特殊类型的数组；以键的方式存储的对象是 <strong>Map</strong> 和 <strong>Set</strong>；支持结构化数据形式的对象有：<strong>JSON</strong>，<strong>ArrayBuffer</strong>，<strong>ShareArrayBuffer</strong> 和 <strong>DateView</strong>；支持抽象的对象有 <em>generate function</em> 和 <strong>Promise</strong>；具有反射功能的对象有 <strong>Proxy</strong> 和 <strong>Reflext</strong>。</p>
 <p>ECMAScript同时定义了一些<em>操作符(operators)</em>。其中包括一元操作符，multiplicative operators, additive operators, bitwise shift operators, relational operators, 等号操作符, binary bitwise operators, binary logical operators, assignment operators, and the comma operator.</p>
@@ -149,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://qudi15.github.io/blog/2017/08/21/ecma-262-4/" data-id="cj6ndcs4v0000f6g3q98qfk7r" class="article-share-link">Partager</a>
+      <a data-url="https://qudi15.github.io/blog/2017/08/21/ecma-262-4/" data-id="cj6ox2ws10003f3g3f5eivk4s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -159,7 +159,7 @@
 <nav id="article-nav">
   
     <a href="/blog/2017/08/21/VueJs-source/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           VueJs source analysis
@@ -197,9 +197,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2017/08/23/ecma-262-6/">ECMA-262 Clause 6</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/23/ecma-262-5/">ECMA-262 Clause 5</a>
+          </li>
         
           <li>
             <a href="/blog/2017/08/21/VueJs-source/">VueJs source analysis</a>
@@ -222,7 +230,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 曲迪(Eddy)<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

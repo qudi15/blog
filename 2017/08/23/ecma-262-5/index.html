@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ECMA-262 Clause 5 | Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="5 Notational Conventions5.1 Syntactic and Lexical Grammars5.1.1 Context-Free Grammars一种与上下文无关的语法由多种成果组成。每一种成果含有左侧存在一个非终止的抽象符号和右侧的一系列大于等于0的非终止和终止符。每个语法中,终止符从一个特殊的字符表中提取。 连锁生产是在其右侧具有正好一个非终结符号的产品以及零个或多个终">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMA-262 Clause 5">
+<meta property="og:url" content="https://qudi15.github.io/blog/2017/08/23/ecma-262-5/index.html">
+<meta property="og:site_name" content="Blogs">
+<meta property="og:description" content="5 Notational Conventions5.1 Syntactic and Lexical Grammars5.1.1 Context-Free Grammars一种与上下文无关的语法由多种成果组成。每一种成果含有左侧存在一个非终止的抽象符号和右侧的一系列大于等于0的非终止和终止符。每个语法中,终止符从一个特殊的字符表中提取。 连锁生产是在其右侧具有正好一个非终结符号的产品以及零个或多个终">
+<meta property="og:updated_time" content="2017-08-23T06:47:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMA-262 Clause 5">
+<meta name="twitter:description" content="5 Notational Conventions5.1 Syntactic and Lexical Grammars5.1.1 Context-Free Grammars一种与上下文无关的语法由多种成果组成。每一种成果含有左侧存在一个非终止的抽象符号和右侧的一系列大于等于0的非终止和终止符。每个语法中,终止符从一个特殊的字符表中提取。 连锁生产是在其右侧具有正好一个非终结符号的产品以及零个或多个终">
+  
+    <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Blogs</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://qudi15.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ecma-262-5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/08/23/ecma-262-5/" class="article-date">
+  <time datetime="2017-08-23T04:29:55.000Z" itemprop="datePublished">2017-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ECMA-262 Clause 5
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="5-Notational-Conventions"><a href="#5-Notational-Conventions" class="headerlink" title="5 Notational Conventions"></a>5 Notational Conventions</h1><h2 id="5-1-Syntactic-and-Lexical-Grammars"><a href="#5-1-Syntactic-and-Lexical-Grammars" class="headerlink" title="5.1 Syntactic and Lexical Grammars"></a>5.1 Syntactic and Lexical Grammars</h2><h3 id="5-1-1-Context-Free-Grammars"><a href="#5-1-1-Context-Free-Grammars" class="headerlink" title="5.1.1 Context-Free Grammars"></a>5.1.1 Context-Free Grammars</h3><p>一种与上下文无关的语法由多种成果组成。每一种成果含有左侧存在一个非终止的抽象符号和右侧的一系列大于等于0的非终止和终止符。每个语法中,终止符从一个特殊的字符表中提取。</p>
+<p>连锁生产是在其右侧具有正好一个非终结符号的产品以及零个或多个终端符号。</p>
+<p>从一个由一个独特的非终端组成的句子（称为目标符号）开始，给定的无上下文语法指定了一种语言，即（可能是无限的）可能的终端符号序列集合，其可能是由于重复地替换序列与生产的右侧是非终端是左侧。</p>
+<h3 id="5-1-2-The-Lexical-and-RegExp-Grammars"><a href="#5-1-2-The-Lexical-and-RegExp-Grammars" class="headerlink" title="5.1.2 The Lexical and RegExp Grammars"></a>5.1.2 The Lexical and RegExp Grammars</h3><p>ECMAScript的词法语法在第11节中给出。该语法具有符合10.1中定义的SourceCharacter规则的Unicode码点的终端符号。它定义了一组生成，从目标符号InputElementDiv，InputElementTemplateTail或InputElementRegExp或InputElementRegExpOrTemplateTail开始，它们描述了这些代码点的序列如何转换为一系列输入元素。</p>
+<p>除空白和注释之外的输入元素构成ECMAScript语法语法的终端符号，称为ECMAScript令牌。这些令牌是ECMAScript语言的保留字，标识符，文字和标点符号。此外，线路终端器虽然不被认为是令牌，但也成为输入元件流的一部分，并指导了自动分号插入的过程（11.9）。简单的空白和单行注释被丢弃，不会出现在句法语法的输入元素流中。 MultiLineComment（也就是表示/ <em> … </em> /的注释，不管跨越多行）同样简单地丢弃，如果它不包含行终止符;但是如果MultiLineComment包含一个或多个行终止符，那么它将被单行终止符替代，该行终止符成为语法语法的输入元素流的一部分。</p>
+<p>ECMAScript的RegExp语法在21.2.1中给出。该语法也具有由SourceCharacter定义的代码点作为其终端符号。它定义了一组生成，从目标符号模式开始，描述代码点的序列如何转换为正则表达式模式。</p>
+<p>词法和RegExp语法的生成通过将两个冒号“::”作为分隔标点来区分。词汇和RegExp语法分享一些作品。</p>
+<h3 id="5-1-3-The-Numeric-String-Grammar"><a href="#5-1-3-The-Numeric-String-Grammar" class="headerlink" title="5.1.3 The Numeric String Grammar"></a>5.1.3 The Numeric String Grammar</h3><p>另一种语法用于将字符串转换为数值。这个语法类似于词法语法与数字文字有关的部分，并具有其终端符号SourceCharacter。该语法出现在7.1.3.1中。</p>
+<p>通过将三个冒号“:::”作为标点符号来区分数字字符串语法的生成。</p>
+<h3 id="5-1-4-The-Syntactic-Grammar"><a href="#5-1-4-The-Syntactic-Grammar" class="headerlink" title="5.1.4 The Syntactic Grammar"></a>5.1.4 The Syntactic Grammar</h3><p>ECMAScript的语法语法在第11,12,13,14和15章中给出。该语法具有由词法语法定义的ECMAScript令牌作为其终端符号（5.1.2）。它定义了一组生产，从两个替代目标符号脚本和模块开始，描述了令牌序列如何构成ECMAScript程序的语法正确的独立组件。</p>
+<p>当代码点流被解析为ECMAScript脚本或模块时，首先通过重复应用词汇语法将其转换为输入元素流;然后，这个输入元素流由语法语法的单个应用解析。如果输入元素流中的令牌不能被解析为目标非终结符（脚本或模块）的单个实例，则没有令牌遗漏，则输入流在语法上是错误的。</p>
+<p>当分析成功时，它构建一个解析树，一个根树结构，其中每个节点都是一个分析节点。每个分析节点是语法中的符号的实例;它表示可以从该符号导出的源文本的跨度。解析树的根节点，代表整个源文本，是解析目标符号的一个实例。当一个分析节点是一个非终端的实例时，它也是一些生产的一个实例，它具有非终端的左侧。此外，它有零个或多个孩子，一个用于生产右侧的每个符号：每个孩子是一个分析节点，它是相应符号的一个实例。</p>
+<p>句法语法的制作通过仅使用一个冒号“：”作为标点符号来区分。</p>
+<p>第12,13,14和15条中提出的句法语法不是完整的记录哪个令牌序列被接受为正确的ECMAScript脚本或模块。还接受某些附加令牌序列，即如果在某些地方（例如在线路终端符字符之前）仅将分号添加到序列中，那么语法将被描述。此外，如果在某些“尴尬”的地方出现行终止符，则语法所描述的某些令牌序列不被认为是可接受的。</p>
+<p>在某些情况下，为了避免歧义，句法语法使用广泛的制作，允许不形成有效的ECMAScript脚本或模块的令牌序列。例如，该技术用于对象文字和对象解构模式。在这种情况下，提供了更加限制性的补充语法，其进一步限制可接受的令牌序列。在某些上下文中，当明确指定时，使用补充语法的目标符号再次分析与这样的生产相对应的输入元素。如果覆盖语法解析的输入元素流中的令牌不能被解析为相应的补充目标符号的单个实例，而没有令牌被遗忘，则输入流在语法上是错误的。</p>
+<h3 id="5-1-5-Grammar-Notation"><a href="#5-1-5-Grammar-Notation" class="headerlink" title="5.1.5 Grammar Notation"></a>5.1.5 Grammar Notation</h3><p>词法，RegExp和数字字符串语法的终端符号以固定宽度的字体显示，无论是语法的生成还是整个本规范中，只要文本直接引用这样的终端符号。这些将以完全写成的脚本出现。以这种方式指定的所有终端符号代码点应被理解为来自基本拉丁语范围的适当的Unicode代码点，而不是来自其他Unicode范围的任何类似代码点。</p>
+<p>非终端符号以斜体显示。非终止（也称为“生产”）的定义由定义的非终结符的名称引入，后跟一个或多个冒号。 （冒号数表示生产所属的语法）。非终结式的一个或多个替代右手边随后跟随。例如，句法定义：</p>
+<pre><code>WhileStatement:
+  while ( Expression ) Statement
+</code></pre><p>表示非终结的WhileStatement表示令牌，之后是左括号令牌，后跟一个表达式，后跟右括号令牌，后跟一个Statement。表达和声明的出现本身就是非终结者。另一个例子，句法定义：</p>
+<pre><code>ArgumentList:
+  AssignmentExpression
+  ArgumentList, AssignmentExpression
+</code></pre><p>声明ArgumentList可以表示单个AssignmentExpression或ArgumentList，后跟逗号，后跟一个AssignmentExpression。 ArgumentList的定义是递归的，也就是说，它是根据自身的定义。结果是ArgumentList可以包含任何正数的参数，用逗号分隔，每个参数表达式是一个AssignmentExpression。非终止的这种递归定义是常见的。</p>
+<p>可能出现在终端或非终结点之后的下标后缀“opt”表示可选符号。包含可选符号的替代实际上指定了两个右侧，一个省略了可选元素，另一个包含它。这意味着：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier Initializer opt
+</code></pre><p>是一个方便的缩写：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier
+  BindingIdentifier Initializer
+</code></pre><p>另一例子：</p>
+<pre><code>IterationStatement:
+  for( LexicalDeclaration Expression opt; Expressionopt) Statement
+</code></pre><p>是一个方便的缩写：</p>
+<pre><code>IterationStatement:
+  for( LexicalDeclaration; Expressionopt ) Statement
+  for( LexicalDeclaration Expression; Expressionopt ) Statement
+</code></pre><p>缩写为：</p>
+<pre><code>IterationStatement:
+  for( LexicalDeclaration; ) Statement
+  for( LexicalDeclaration; Expression ) Statement
+  for( LexicalDeclarationExpression; ) Statement
+  for( LexicalDeclarationExpression; Expression ) Statement
+</code></pre><p>所以，在此例中，非终止符IterationStatement实际上有四种可选的右侧语法。</p>
+<p>生产可以通过“[parameters]”形式的下标注释进行参数化，这可以显示为生产定义的非终结符号的后缀。 “参数”可以是单个名称或逗号分隔的名称列表。参数化生产是一组定义了参数名称的所有组合的缩写，后面是一个下划线，附加到参数化的非终结符号。这意味着：</p>
+<pre><code>StatementList[Return]:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>缩写为:</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_Return:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>另一个：</p>
+<pre><code>StatementList[ Return, In ]:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>缩写为：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_Return:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_In:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_Return_In:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>多个参数产生组合数量的生成，并不是所有这些都必须以完整的语法参考。</p>
+<p>也可以对生产右侧的非终端进行参数化。例如：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement[+In]
+</code></pre><p>等同于：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement_In
+</code></pre><p>和：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement[~In]
+</code></pre><p>等同于：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>非终止引用可能同时具有参数列表和“opt”后缀。例如：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier Initializer [+In] opt
+</code></pre><p>缩写为：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier
+  BindingIdentifier Initializer_In
+</code></pre><p>在右侧的非终端引用上使用“？”来修饰参数名称，使该参数值取决于当前生产的左侧符号引用参数名称的出现。例如：</p>
+<pre><code>VariableDeclaration[In]:
+  BindingIdentifier Initializer[?In]
+</code></pre><p>缩写为：</p>
+<pre><code>VariableDeclaration:
+  BindingIdentifier Initializer
+
+VariableDeclaration_In:
+  BindingIdentifier Initializer_In
+</code></pre><p>如果右侧替代方案以“[+ parameter”“为前缀，则只有在引用生产的非终结符号时使用了该命名参数，该选项才可用。如果右侧替代方案以“[〜parameter”“为前缀，则只有在引用生产的非终结符号时未使用命名参数才可用。这意味着:</p>
+<pre><code>StatementList[Return]:
+  [+Return] ReturnStatement
+  ExpressionStatement
+</code></pre><p>缩写为：</p>
+<pre><code>StatementList:
+  ExpressionStatement
+
+StatementList_Return:
+  ReturnStatement
+  ExpressionStatement
+</code></pre><p>和：</p>
+<pre><code>StatementList[Return]:
+  [~Return] ReturnStatement
+  ExpressionStatement
+</code></pre><p>缩写为：</p>
+<pre><code>StatementList:
+  ReturnStatement
+  ExpressionStatement
+
+StatementList_Return:
+  ExpressionStatement
+</code></pre><p>当“一个”一词在语法定义中跟随冒号时，它们表示以下行或行上的每个终端符号是替代定义。例如，ECMAScript的词法语法包含生产：</p>
+<pre><code>NonZeroDigit :: one of
+  1 2 3 4 5 6 7 8 9
+</code></pre><p>可以缩写成：</p>
+<pre><code>NonZeroDigit ::
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+</code></pre><p>如果短语“[空]”出现在制作的右侧，则表示生产的右侧不包含终端或非终结符。</p>
+<p>如果短语“[lookahead∉set]”出现在制作的右侧，则表示如果紧随其后的输入令牌序列是给定集合的成员，则表示生产可能不被使用。该集合可以写成逗号分隔的一个或两个元素终端序列的列表，其中括号包含在大括号中。为了方便起见，该集合也可以被写为非终结符，在这种情况下，它表示非终端可以扩展的所有终端的集合。如果该组由单个终端组成，则可以使用短语“[lookahead≠terminal]”。</p>
+<p><a href="https://www.ecma-international.org/ecma-262/8.0/index.html#prod-grammar-notation-IterationStatement" target="_blank" rel="external">tbd</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://qudi15.github.io/blog/2017/08/23/ecma-262-5/" data-id="cj6ox2wrz0002f3g3z68zduni" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/08/23/ecma-262-6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ECMA-262 Clause 6
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/08/21/VueJs-source/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">VueJs source analysis</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/08/23/ecma-262-6/">ECMA-262 Clause 6</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/23/ecma-262-5/">ECMA-262 Clause 5</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/21/VueJs-source/">VueJs source analysis</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/21/ecma-262-4/">ECMA-262 Clause 4</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 曲迪(Eddy)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>
