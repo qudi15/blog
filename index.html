@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://qudi15.github.io/blog"></form>
@@ -401,12 +401,15 @@
 </tbody>
 </table>
 <p>普通对象和标准异常对象的基本内部方法的语义在第9节中指定。如果实现中不支持外部对象的内部方法的任何指定使用，则尝试时该使用必须引发TypeError异常。</p>
-<h4 id="6-1-7-3-Invariants-of-the-Essential-Internal-Methods"><a href="#6-1-7-3-Invariants-of-the-Essential-Internal-Methods" class="headerlink" title="6.1.7.3 Invariants of the Essential Internal Methods"></a>6.1.7.3 Invariants of the Essential Internal Methods</h4><p><a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-data-types-and-values" target="_blank" rel="external">tbd</a></p>
+<h4 id="6-1-7-3-Invariants-of-the-Essential-Internal-Methods"><a href="#6-1-7-3-Invariants-of-the-Essential-Internal-Methods" class="headerlink" title="6.1.7.3 Invariants of the Essential Internal Methods"></a>6.1.7.3 Invariants of the Essential Internal Methods</h4><p>ECMAScript引擎的对象的内部方法必须符合以下指定的不变量列表。普通ECMAScript对象以及本规范中的所有标准异常对象都会保留这些不变量。 ECMAScript Proxy对象通过对[[ProxyHandler]]对象上调用的陷阱结果进行运行时检查来维护这些不变量。</p>
+<p>提供异构对象的任何实现也必须为这些对象维护这些不变量。违反这些不变量可能会导致ECMAScript代码具有不可预测的行为并创建安全问题。但是，违反这些不变量绝对不会损害实现的内存安全。</p>
+<p>实现不能允许以任何方式绕过这些不变量，例如通过提供实现基本内部方法的功能的替代接口，而不强制实现其不变量。</p>
+<p><a href="https://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-data-types-and-values" target="_blank" rel="external">tbd</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://qudi15.github.io/blog/2017/08/23/ecma-262-6/" data-id="cj6x67axk000313g3u0hjm8s3" class="article-share-link">Share</a>
+      <a data-url="https://qudi15.github.io/blog/2017/08/23/ecma-262-6/" data-id="cj6x6aufl00014ig3cj7l3gf4" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -591,7 +594,7 @@ StatementList_Return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://qudi15.github.io/blog/2017/08/23/ecma-262-5/" data-id="cj6x67ax1000213g3xb58hu0t" class="article-share-link">Share</a>
+      <a data-url="https://qudi15.github.io/blog/2017/08/23/ecma-262-5/" data-id="cj6x6aufn00024ig30j8w3q22" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -627,7 +630,7 @@ StatementList_Return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://qudi15.github.io/blog/2017/08/21/VueJs-source/" data-id="cj6x67awb000113g3tk65zw72" class="article-share-link">Share</a>
+      <a data-url="https://qudi15.github.io/blog/2017/08/21/VueJs-source/" data-id="cj6x6aufd00004ig33kjkcssw" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -721,7 +724,7 @@ StatementList_Return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://qudi15.github.io/blog/2017/08/21/ecma-262-4/" data-id="cj6x67aw3000013g32ry0fnuw" class="article-share-link">Share</a>
+      <a data-url="https://qudi15.github.io/blog/2017/08/21/ecma-262-4/" data-id="cj6x6aufr00034ig3cvcw0n4m" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -756,7 +759,7 @@ StatementList_Return:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -789,7 +792,7 @@ StatementList_Return:
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 曲迪(Eddy)<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
